@@ -1,0 +1,28 @@
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sb-header">
+      <span class="sb-brand">MES Operations Suite</span>
+    </div>
+    <nav class="sb-nav">
+      @for (item of navItems; track item.path) {
+        <a
+          class="nav-item"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+        >
+          <app-icon class="nav-icon" [name]="item.icon" [size]="18" />
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <span class="topbar-title">MES Operations Suite</span>
+    </header>
+    <div class="content-scroll">
+      <router-outlet />
+    </div>
+  </div>
+</div>

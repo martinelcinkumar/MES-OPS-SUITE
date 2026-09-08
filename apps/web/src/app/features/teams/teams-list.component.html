@@ -1,0 +1,38 @@
+<div class="ph">
+  <div>
+    <h2>Teams</h2>
+    <p>Manage MES operations teams and their rosters</p>
+  </div>
+  <button mat-flat-button color="primary" (click)="openCreateDialog()">
+    <app-icon name="add" [size]="16" />
+    New Team
+  </button>
+</div>
+
+@if (loading()) {
+  <p class="muted">Loading teams…</p>
+} @else if (teams().length === 0) {
+  <p class="muted">No teams yet. Create the first one to get started.</p>
+} @else {
+  <div class="team-grid">
+    @for (team of teams(); track team.id) {
+      <a class="team-card card" [routerLink]="['/teams', team.id]">
+        <div class="team-card-hdr">
+          <span class="team-name">{{ team.name }}</span>
+          <span class="tag tag-blue">{{ team.supportLevel }}</span>
+        </div>
+        <p class="team-desc">{{ team.description || 'No description yet.' }}</p>
+        <div class="team-card-footer">
+          <span class="team-slug">{{ team.slug }}</span>
+          <button
+            mat-icon-button
+            aria-label="Delete team"
+            (click)="deleteTeam(team, $event)"
+          >
+            <app-icon name="delete" [size]="18" />
+          </button>
+        </div>
+      </a>
+    }
+  </div>
+}

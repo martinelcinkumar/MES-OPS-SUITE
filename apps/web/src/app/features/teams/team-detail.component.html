@@ -1,0 +1,47 @@
+@if (team(); as t) {
+  <a class="back-link" routerLink="/teams">
+    <app-icon name="arrow-back" [size]="18" /> All Teams
+  </a>
+
+  <div class="team-hdr-card card">
+    <div>
+      <div class="t-name">{{ t.name }}</div>
+      <div class="t-sub">{{ t.description || 'No description yet.' }}</div>
+    </div>
+    <span class="tag tag-blue">{{ t.supportLevel }}</span>
+  </div>
+
+  <div class="mem-hdr">
+    <h3>Team Roster</h3>
+    <button mat-flat-button color="primary" (click)="openAddMemberDialog()">
+      <app-icon name="person-add" [size]="16" />
+      Add Member
+    </button>
+  </div>
+
+  @if (loading()) {
+    <p class="muted">Loading roster…</p>
+  } @else if (members().length === 0) {
+    <p class="muted">No members yet. Add the first one.</p>
+  } @else {
+    <div class="mem-grid">
+      @for (m of members(); track m.id) {
+        <div class="mem-card card">
+          <div class="m-av">{{ initials(m) }}</div>
+          <div class="m-info">
+            <div class="m-name">{{ m.firstName }} {{ m.lastName }}</div>
+            <div class="m-role">{{ m.role }}</div>
+            <div class="m-email">{{ m.email }}</div>
+          </div>
+          <button
+            mat-icon-button
+            aria-label="Remove member"
+            (click)="removeMember(m)"
+          >
+            <app-icon name="close" [size]="16" />
+          </button>
+        </div>
+      }
+    </div>
+  }
+}
