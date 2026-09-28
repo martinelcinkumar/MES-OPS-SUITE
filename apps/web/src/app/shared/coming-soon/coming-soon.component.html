@@ -1,0 +1,12 @@
+<div class="coming-soon card">
+  <div class="cs-icon"><app-icon name="dashboard" [size]="28" /></div>
+  <div class="cs-title">{{ title() }}</div>
+  <div class="cs-desc">
+    This module hasn't been built yet — it's on the list, coming module by
+    module.
+    @if (description()) {
+      <br />
+      {{ description() }}
+    }
+  </div>
+</div>

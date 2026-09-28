@@ -1,0 +1,35 @@
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 30px;
+  max-width: 420px;
+  margin: 40px auto 0;
+}
+
+.cs-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--blue-bg);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.cs-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin-bottom: 8px;
+}
+
+.cs-desc {
+  font-size: 13.5px;
+  color: var(--text-m);
+  line-height: 1.6;
+}

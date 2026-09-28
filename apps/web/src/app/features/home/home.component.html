@@ -1,0 +1,33 @@
+<div class="hero-banner">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-copy">
+    <h1 class="hero-h1">Welcome to MES Operations</h1>
+    <p class="hero-p">
+      Access all your tools and resources in one place. Your centralized hub
+      for operational intelligence and system management.
+    </p>
+    <div class="hero-btns">
+      <button class="hero-btn-primary" (click)="quickLaunch()">
+        <app-icon name="play" [size]="14" />
+        Quick Launch
+      </button>
+      <button class="hero-btn-ghost" (click)="quickLaunch()">
+        <app-icon name="help" [size]="14" />
+        View Tutorial
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="tile-grid">
+  @for (tile of tiles; track tile.title) {
+    <div class="tile" (click)="onTileClick(tile)">
+      <div class="tile-icon" [class]="tile.iconClass">
+        <app-icon [name]="tile.icon" [size]="22" [style.color]="tile.iconColor" />
+      </div>
+      <div class="tile-title">{{ tile.title }}</div>
+      <div class="tile-desc">{{ tile.desc }}</div>
+    </div>
+  }
+</div>
