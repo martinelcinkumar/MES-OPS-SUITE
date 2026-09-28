@@ -1,3 +1,5 @@
+import { mkdirSync } from 'fs';
+import { dirname } from 'path';
 import { DataSourceOptions } from 'typeorm';
 
 /**
@@ -32,9 +34,16 @@ export function buildDataSourceOptions(env: NodeJS.ProcessEnv): DataSourceOption
   // needs a native C++ compiler toolchain (Visual Studio Build Tools on
   // Windows) to install. sql.js needs nothing but Node, so local dev works
   // out of the box on any machine, locked-down corporate laptops included.
+  const sqlitePath = env.DB_SQLITE_PATH || 'data/dev.sqlite';
+  // sql.js's autoSave writes straight to this path and doesn't create its
+  // parent directory — and git doesn't track empty dirs, so a fresh clone
+  // has no `data/` folder yet. Make sure it exists before TypeORM tries to
+  // save there.
+  mkdirSync(dirname(sqlitePath), { recursive: true });
+
   return {
     type: 'sqljs',
-    location: env.DB_SQLITE_PATH || 'data/dev.sqlite',
+    location: sqlitePath,
     autoSave: true,
     entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
