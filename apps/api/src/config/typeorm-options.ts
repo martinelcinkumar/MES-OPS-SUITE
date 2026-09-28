@@ -28,9 +28,14 @@ export function buildDataSourceOptions(env: NodeJS.ProcessEnv): DataSourceOption
     };
   }
 
+  // Pure-JS/WASM SQLite (sql.js) — deliberately not better-sqlite3, which
+  // needs a native C++ compiler toolchain (Visual Studio Build Tools on
+  // Windows) to install. sql.js needs nothing but Node, so local dev works
+  // out of the box on any machine, locked-down corporate laptops included.
   return {
-    type: 'better-sqlite3',
-    database: env.DB_SQLITE_PATH || 'data/dev.sqlite',
+    type: 'sqljs',
+    location: env.DB_SQLITE_PATH || 'data/dev.sqlite',
+    autoSave: true,
     entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
     synchronize: false,
