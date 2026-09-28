@@ -17,17 +17,16 @@ export interface TeamFormDialogData {
 }
 
 @Component({
-  selector: 'app-team-form-dialog',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-  ],
-  templateUrl: './team-form-dialog.component.html',
+    selector: 'app-team-form-dialog',
+    imports: [
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+    ],
+    templateUrl: './team-form-dialog.component.html'
 })
 export class TeamFormDialogComponent {
   private readonly fb = inject(FormBuilder);

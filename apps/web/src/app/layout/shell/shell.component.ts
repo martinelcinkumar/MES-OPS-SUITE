@@ -3,11 +3,10 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { IconComponent } from '../../shared/icon/icon.component';
 
 @Component({
-  selector: 'app-shell',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, RouterOutlet, IconComponent],
-  templateUrl: './shell.component.html',
-  styleUrl: './shell.component.scss',
+    selector: 'app-shell',
+    imports: [RouterLink, RouterLinkActive, RouterOutlet, IconComponent],
+    templateUrl: './shell.component.html',
+    styleUrl: './shell.component.scss'
 })
 export class ShellComponent {
   readonly navItems = [

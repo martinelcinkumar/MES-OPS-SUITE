@@ -11,17 +11,16 @@ import { IconComponent } from '../../shared/icon/icon.component';
 import { TeamFormDialogComponent } from './team-form-dialog.component';
 
 @Component({
-  selector: 'app-teams-list',
-  standalone: true,
-  imports: [
-    RouterLink,
-    MatButtonModule,
-    MatCardModule,
-    MatChipsModule,
-    IconComponent,
-  ],
-  templateUrl: './teams-list.component.html',
-  styleUrl: './teams-list.component.scss',
+    selector: 'app-teams-list',
+    imports: [
+        RouterLink,
+        MatButtonModule,
+        MatCardModule,
+        MatChipsModule,
+        IconComponent,
+    ],
+    templateUrl: './teams-list.component.html',
+    styleUrl: './teams-list.component.scss'
 })
 export class TeamsListComponent implements OnInit {
   private readonly teamsService = inject(TeamsService);

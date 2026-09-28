@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [RouterLink],
-  template: `
+    selector: 'app-home',
+    imports: [RouterLink],
+    template: `
     <div class="welcome">
       <h1>Welcome to MES Operations Suite</h1>
       <p>
@@ -16,8 +15,8 @@ import { RouterLink } from '@angular/router';
       <a class="btn btn-primary" routerLink="/teams">Go to Teams</a>
     </div>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .welcome {
         text-align: center;
         padding: 60px 0 24px;
@@ -36,6 +35,6 @@ import { RouterLink } from '@angular/router';
         line-height: 1.6;
       }
     `,
-  ],
+    ]
 })
 export class HomeComponent {}

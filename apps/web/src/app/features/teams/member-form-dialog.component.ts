@@ -17,17 +17,16 @@ export interface MemberFormDialogData {
 }
 
 @Component({
-  selector: 'app-member-form-dialog',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-  ],
-  templateUrl: './member-form-dialog.component.html',
+    selector: 'app-member-form-dialog',
+    imports: [
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+    ],
+    templateUrl: './member-form-dialog.component.html'
 })
 export class MemberFormDialogComponent {
   private readonly fb = inject(FormBuilder);

@@ -10,11 +10,10 @@ import { IconComponent } from '../../shared/icon/icon.component';
 import { MemberFormDialogComponent } from './member-form-dialog.component';
 
 @Component({
-  selector: 'app-team-detail',
-  standalone: true,
-  imports: [RouterLink, MatButtonModule, MatCardModule, IconComponent],
-  templateUrl: './team-detail.component.html',
-  styleUrl: './team-detail.component.scss',
+    selector: 'app-team-detail',
+    imports: [RouterLink, MatButtonModule, MatCardModule, IconComponent],
+    templateUrl: './team-detail.component.html',
+    styleUrl: './team-detail.component.scss'
 })
 export class TeamDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
